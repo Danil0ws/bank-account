@@ -3,6 +3,7 @@ package buff.dev.bank.repository.models;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,11 +26,14 @@ public class Account {
     @NotNull
     private Integer branch;
     @NotNull
+    @Column(name = "account_number", nullable = false)
     private Long accountNumber;    
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "consumer_id")
     private Consumer consumerId;
     
-    private LocalDate CreatedDate;
+    @Builder.Default
+    @Column(name = "created_date", nullable = false)
+    private LocalDate CreatedDate = LocalDate.now();
 }

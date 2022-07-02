@@ -41,6 +41,7 @@ public class Consumer {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "address_id")
     private Address address;    
-    @Column(name = "created_date")
-    private LocalDate createdDate;
+    @Builder.Default
+    @Column(name = "created_date", nullable = false)
+    private LocalDate CreatedDate = LocalDate.now();
 }

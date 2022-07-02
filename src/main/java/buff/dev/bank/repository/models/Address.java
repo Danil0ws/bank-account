@@ -1,5 +1,7 @@
 package buff.dev.bank.repository.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,4 +32,8 @@ public class Address {
     private String country;
     @Column(name = "zip_code", nullable = false)
     private String zipCode;
+
+    @Builder.Default
+    @Column(name = "created_date", nullable = false)
+    private LocalDate CreatedDate = LocalDate.now();
 }
