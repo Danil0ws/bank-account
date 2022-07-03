@@ -39,7 +39,7 @@ public class Consumer {
     @Column(name = "birth_date")
     private String birthDate;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "address_id")
+    @JoinColumn(name = "address")
     private Address address;    
     @Builder.Default
     @Column(name = "created_date", nullable = false)

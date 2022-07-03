@@ -1,6 +1,5 @@
 package buff.dev.bank.repository.models;
 
-
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -19,7 +18,7 @@ import lombok.Data;
 @Entity
 @Data
 @Builder
-public class Account {    
+public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -27,12 +26,11 @@ public class Account {
     private Integer branch;
     @NotNull
     @Column(name = "account_number", nullable = false)
-    private Long accountNumber;    
-
+    private Long accountNumber;
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "consumer_id")
-    private Consumer consumerId;
-    
+    @JoinColumn(name = "consumer")
+    private Consumer consumer;
+
     @Builder.Default
     @Column(name = "created_date", nullable = false)
     private LocalDate CreatedDate = LocalDate.now();

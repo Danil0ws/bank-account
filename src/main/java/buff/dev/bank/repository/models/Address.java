@@ -32,7 +32,6 @@ public class Address {
     private String country;
     @Column(name = "zip_code", nullable = false)
     private String zipCode;
-
     @Builder.Default
     @Column(name = "created_date", nullable = false)
     private LocalDate CreatedDate = LocalDate.now();

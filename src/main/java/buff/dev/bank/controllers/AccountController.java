@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import buff.dev.bank.dto.AccountDTO;
+import buff.dev.bank.dto.AccountCreateDTO;
 import buff.dev.bank.repository.AccountRepository;
 import buff.dev.bank.repository.models.Account;
 import buff.dev.bank.services.AccountService;
@@ -37,7 +37,7 @@ public class AccountController {
     }
     
     @RequestMapping(method = RequestMethod.POST, value = "/account")
-    public Account saveAccount(@RequestBody AccountDTO accountDTO) {
+    public Account saveAccount(@RequestBody AccountCreateDTO accountDTO) {
         return service.saveNewAccount(accountDTO);
     }
 
